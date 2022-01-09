@@ -50,7 +50,7 @@ class ContentViewModel: ObservableObject {
         guard let kenmei_encode = kenmei.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         
         //URLの読み込み
-        let currentConverter = CurrentRequest(urlString: "https://api.openweathermap.org/data/2.5/weather?q=\(kenmei_encode)&appid=b36d2c7d5713d2b3af8919622aa36351&lang=ja&units=metric")
+        let currentConverter = CurrentRequest(urlString: "https://api.openweathermap.org/data/2.5/weather?q=\(kenmei_encode)&appid=&lang=ja&units=metric")
         
         
         
@@ -138,7 +138,7 @@ class ContentViewModel: ObservableObject {
     func getForcast(lon: Double, lat: Double){
         
         
-        let forcastConverter = CurrentRequest(urlString: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&appid=b36d2c7d5713d2b3af8919622aa36351&lang&units=metric")
+        let forcastConverter = CurrentRequest(urlString: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&appid=&lang&units=metric")
         
         forcastConverter.resume() { data, response, error in
             //予報についてのクロージャー書く
